@@ -1,0 +1,75 @@
+
+
+так я це зрозумів мені потрібно дописати обєкт memberShip  і dataCArt
+
+    w@GetMapping("/available")
+    public List<MovieSessionResponseDto> findAvailableSessions(@RequestParam Long movieId,
+                                                @RequestParam
+            @DateTimeFormat(pattern = DateTimePatternUtil.DATE_PATTERN)
+                                                        LocalDate date) {
+        return movieSessionService.findAvailableSessions(movieId, date)
+                .stream()
+                .map(movieSessionResponseDtoMapper::mapToDto)
+                .toList();
+    }
+
+    32,Lapin@gmail,Nazar,Lapin
+    27,Ruzanskij@gmail,Volodymer,Ruzanskij
+    22,Huk@gmail,Anna,Huk
+    26,balok@gmail,Liza,Balok
+
+    jon@gmail,jon,jon,$2a$10$82hHivVp62DlOn64skSxUeNQTOvWwbh9dmgpV2Bq13C2n9TFJmljm
+
+    insert into users (email, first_name, last_name, password, role)
+    value ('jon@gmail','jon','jon','$2a$10$82hHivVp62DlOn64skSxUeNQTOvWwbh9dmgpV2Bq13C2n9TFJmljm','ROLE_USER')
+
+  "firstname": "Nazar",
+  "lastname": "Ran",
+  "email": "ran@gmail",
+  "speciality": "yoga",
+  "еxpirience": "Lion Coach",
+  "price": 1000,
+  "gender": "man",
+  "age": 23
+
+
+   "firstname": "Roman",
+    "lastname": "Kovalenko",
+    "email": "koval@gmail",
+    "speciality": "yoga",
+    "еxpirience": "Lion trener",
+    "price": 1000,
+    "gender": "girl",
+    "age": 23,
+    "linkToPhoto": "https://i.ibb.co/vs51StY/Yuliya-Shevchenko.jpg"
+
+    {
+      "firstname": "Daryna",
+      "lastname": "Milovska",
+      "email": "Milovska@gmail.com",
+      "speciality": "Gym",
+      "еxpirience": "Very good Coach",
+      "price": 1000,
+      "gender": "girl",
+      "age": 24,
+      "linkToPhoto": "https://i.ibb.co/c6K4cjF/Daryna-Milovska.jpg"
+    }
+
+            String patter = "^(https?|ftp|file)://[-a-zA-Z0-9+&@#/%?=~_|!:,.;]*[-a-zA-Z0-9+&@#/%=~_|]";
+
+
+ "nameWebinar": "GYM",
+  "nameLocation": "GYM-HALA",
+  "lastNameCoach": "Milovska",
+  "dateWebinar": "21:00",
+  "hardTrening": 2
+
+
+  insert into users (email, first_name, last_name, password, role)
+      value ('jon@gmail','jon','jon','$2a$10$82hHivVp62DlOn64skSxUeNQTOvWwbh9dmgpV2Bq13C2n9TFJmljm','ROLE_USER');
+
+  insert into users (email, first_name, last_name, password, role)
+      value ('boris@gmail','boris','boris','$2a$10$82hHivVp62DlOn64skSxUeNQTOvWwbh9dmgpV2Bq13C2n9TFJmljm','ROLE_USER')
+
+  insert into users (email, first_name, last_name, password, role)
+      value ('anna@gmail','anna','anna','$2a$10$82hHivVp62DlOn64skSxUeNQTOvWwbh9dmgpV2Bq13C2n9TFJmljm','ROLE_USER')
