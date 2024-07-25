@@ -9,6 +9,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @RestController
 @RequestMapping("coach")
 @RequiredArgsConstructor
@@ -34,5 +36,11 @@ public class CouchController {
     @DeleteMapping("del/{id}")
     public void deleteCouch (@RequestParam Long couchId) {
         couchService.deleteCoach(couchId);
+    }
+
+    @PreAuthorize("hasRole('ROLE_ADMIN') or hasRole('ROLE_USER')" )
+    @GetMapping("/all")
+    public List<Coach> getAllCoach () {
+        return couchService.allCoach();
     }
 }

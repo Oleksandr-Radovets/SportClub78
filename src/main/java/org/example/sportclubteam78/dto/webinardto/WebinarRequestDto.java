@@ -1,62 +1,93 @@
 package org.example.sportclubteam78.dto.webinardto;
 
+import jakarta.persistence.*;
+import org.example.sportclubteam78.model.Coach;
+import org.example.sportclubteam78.model.User;
+
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 public class  WebinarRequestDto {
+    private String name;
+    private String location;
+    private String studio;
+    private String lastNameCouch;
+    private String  time;
+    private String date;
+    private String hard;
+    private List<User> users = new ArrayList<>(getCapacity());
+    private int capacity;
 
-    private String nameWebinar;
-    private String nameLocation;
-    private String lastNameCoach;
-    private String dateWebinar;
-    private int hardTrening;
-
-   private int capacityVisitors;
-
-    public String getNameWebinar() {
-        return nameWebinar;
+    public String getName() {
+        return name;
     }
 
-    public void setNameWebinar(String nameWebinar) {
-        this.nameWebinar = nameWebinar;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNameLocation() {
-        return nameLocation;
+    public String getLocation() {
+        return location;
     }
 
-    public void setNameLocation(String nameLocation) {
-        this.nameLocation = nameLocation;
+    public void setLocation(String location) {
+        this.location = location;
     }
 
-    public String getLastNameCoach() {
-        return lastNameCoach;
+    public String getStudio() {
+        return studio;
     }
 
-    public void setLastNameCoach(String lastNameCoach) {
-        this.lastNameCoach = lastNameCoach;
+    public void setStudio(String studio) {
+        this.studio = studio;
     }
 
-    public String getDateWebinar() {
-        return dateWebinar;
+    public String getLastNameCouch() {
+        return lastNameCouch;
     }
 
-    public void setDateWebinar(String dateWebinar) {
-        this.dateWebinar = dateWebinar;
+    public void setLastNameCouch(String lastNameCouch) {
+        this.lastNameCouch = lastNameCouch;
     }
 
-    public int getHardTrening() {
-        return hardTrening;
+    public String getTime() {
+        return time;
     }
 
-    public void setHardTrening(int hardTrening) {
-        this.hardTrening = hardTrening;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public int getCapacityVisitors() {
-        return capacityVisitors;
+    public String getDate() {
+        return date;
     }
 
-    public void setCapacityVisitors(int capacityVisitors) {
-        this.capacityVisitors = capacityVisitors;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getHard() {
+        return hard;
+    }
+
+    public void setHard(String hard) {
+        this.hard = hard;
+    }
+
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 }

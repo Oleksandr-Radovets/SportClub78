@@ -7,21 +7,22 @@ import java.util.List;
 
 @Entity
 public class Webinar {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String nameWebinar;
-    private String nameLocation;
+    private String name;
+    private String location;
+    private String studio;
     @OneToOne (cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Coach couch;
-    private String  dateWebinar;
-    private int hardTrening;
+    private String  time;
+    private String date;
+    private String hard;
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @Column(unique = true)
-    private List<User> users = new ArrayList<>(getCapacityVisitors());
+    private List<User> users = new ArrayList<>(getCapacity());
 
-    private int capacityVisitors;
+    private int capacity;
 
     public Long getId() {
         return id;
@@ -31,20 +32,28 @@ public class Webinar {
         this.id = id;
     }
 
-    public String getNameWebinar() {
-        return nameWebinar;
+    public String getName() {
+        return name;
     }
 
-    public void setNameWebinar(String nameWebinar) {
-        this.nameWebinar = nameWebinar;
+    public void setName(String name) {
+        this.name = name;
     }
 
-    public String getNameLocation() {
-        return nameLocation;
+    public String getLocation() {
+        return location;
     }
 
-    public void setNameLocation(String nameLocation) {
-        this.nameLocation = nameLocation;
+    public void setLocation(String location) {
+        this.location = location;
+    }
+
+    public String getStudio() {
+        return studio;
+    }
+
+    public void setStudio(String studio) {
+        this.studio = studio;
     }
 
     public Coach getCouch() {
@@ -55,20 +64,28 @@ public class Webinar {
         this.couch = couch;
     }
 
-    public String getDateWebinar() {
-        return dateWebinar;
+    public String getTime() {
+        return time;
     }
 
-    public void setDateWebinar(String dateWebinar) {
-        this.dateWebinar = dateWebinar;
+    public void setTime(String time) {
+        this.time = time;
     }
 
-    public int getHardTrening() {
-        return hardTrening;
+    public String getDate() {
+        return date;
     }
 
-    public void setHardTrening(int hardTrening) {
-        this.hardTrening = hardTrening;
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public String getHard() {
+        return hard;
+    }
+
+    public void setHard(String hard) {
+        this.hard = hard;
     }
 
     public List<User> getUsers() {
@@ -79,11 +96,11 @@ public class Webinar {
         this.users = users;
     }
 
-    public int getCapacityVisitors() {
-        return capacityVisitors;
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setCapacityVisitors(int capacityVisitors) {
-        this.capacityVisitors = capacityVisitors;
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 }
