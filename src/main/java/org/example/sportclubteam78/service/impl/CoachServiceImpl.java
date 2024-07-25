@@ -8,6 +8,7 @@ import org.example.sportclubteam78.service.CouchService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -54,6 +55,9 @@ public class CoachServiceImpl implements CouchService {
         couchRepository.deleteById(coachId);
     }
 
+    public List<Coach> allCoach() {
+       return couchRepository.findAll();
+    }
     private boolean IsMatch(String s, String pattern) {
         try {
             Pattern patt = Pattern.compile(pattern);

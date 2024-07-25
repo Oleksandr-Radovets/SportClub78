@@ -29,16 +29,17 @@ public class WebinarServiceImpl implements WebinarService {
 
     @Override
     public Webinar createWebinar(WebinarRequestDto webinar) {
-        Coach coach = coachRepository.findByLastName(webinar.getLastNameCoach()).orElseThrow(() -> new RuntimeException("Coach not found"));
+        Coach coach = coachRepository.findByLastName(webinar.getLastNameCouch()).orElseThrow(() -> new RuntimeException("Coach not found"));
         Webinar webinar1 = new Webinar();
-        webinar1.setNameWebinar(webinar.getNameWebinar());
-        webinar1.setNameLocation(webinar.getNameLocation());
+        webinar1.setName(webinar.getName());
+        webinar1.setLocation(webinar.getLocation());
+        webinar1.setStudio(webinar.getStudio());
         webinar1.setCouch(coach);
-        webinar1.setDateWebinar(webinar.getDateWebinar());
-        webinar1.setHardTrening(webinar.getHardTrening());
-        webinar1.setCapacityVisitors(webinar.getCapacityVisitors());
-        Webinar save = webinarRepository.save(webinar1);
-        return  save;
+        webinar1.setTime(webinar.getTime());
+        webinar1.setHard(webinar.getHard());
+        webinar1.setCapacity(webinar.getCapacity());
+        webinar1.setDate(webinar.getDate());
+        return webinarRepository.save(webinar1);
     }
 
     @Override
@@ -56,7 +57,7 @@ public class WebinarServiceImpl implements WebinarService {
                 -> new RuntimeException("this webinar not found"));
         List<User> users = webinar.getUsers();
         boolean contains = users.contains(user);
-        if (contains || users.size() >= webinar.getCapacityVisitors()) {
+        if (contains || users.size() >= webinar.getCapacity()) {
             throw new RuntimeException("User already exists");
         }
         webinar.getUsers().add(user);
